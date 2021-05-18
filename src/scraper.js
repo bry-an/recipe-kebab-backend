@@ -11,8 +11,8 @@ async function getPairings (ingredient) {
     const html = await getIngredientHtml(ingredient)
     const $ = cheerio.load(html.data)
     const goesWellWithListItems = $('.goeswell li').get()
-    const items = goesWellWithListItems.map((item) => $(item).text())
-    return items.filter((e) => !e.includes('\n'))
+    const textItems = goesWellWithListItems.map((item) => $(item).text())
+    return textItems.filter((ti) => !ti.includes('\n'))
 }
 
 export {getPairings}
